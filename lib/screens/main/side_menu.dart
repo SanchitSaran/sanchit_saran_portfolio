@@ -1,4 +1,10 @@
+
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_file_downloader/flutter_file_downloader.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -8,8 +14,15 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants.dart';
 
-class SideMenu extends StatelessWidget {
- 
+class SideMenu extends StatefulWidget {
+  @override
+  State<SideMenu> createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
+ String cvURL = 'https://drive.google.com/file/d/1xSySY6tJivvx2IX2_HYSeKr79WBntjw_/view?usp=sharing';
+ var _progress = 0.0;
+
   @override
   Widget build(BuildContext context) {
     final thmode = Provider.of<ThemeModeProv>(context);
@@ -43,7 +56,14 @@ class SideMenu extends StatelessWidget {
                     Divider(),
                     SizedBox(height: defaultPadding / 2),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+
+
+
+                            _launchUrl(
+                                cvURL);
+
+                      },
                       child: FittedBox(
                         child: Row(
                           children: [

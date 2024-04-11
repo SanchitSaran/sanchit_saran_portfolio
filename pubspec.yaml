@@ -33,6 +33,7 @@ dependencies:
   animated_text_kit:
   url_launcher:
   provider:
+  flutter_file_downloader:
 
 dev_dependencies:
   flutter_test:
